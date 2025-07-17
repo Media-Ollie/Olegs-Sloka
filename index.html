@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olegs Sloka</title>
+    <link rel="icon" type="image/png" href="Images/Logo-Small.png">
+    <link rel="stylesheet" href="CSS/general.css">
+    <link rel="stylesheet" href="CSS/main-page.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">OS</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#photography">Photography</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hello, Olegs Sloka</h1>
+            <p>Web Developer • Photographer • Writer</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="projects" class="section">
+            <h2>Development Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">Game Studio Site</div>
+                    <div class="project-info">
+                        <p>This is a website for a game studio who make Roblox games about the Norwigan Railway system with every littile detail
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Vercel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">Portfolio Website</div>
+                    <div class="project-info">
+                        <p>A stunning portfolio website (Atleast I would say) for my self with smooth animations and interactive elements.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">HTML</span>                        
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">Discord Bot</div>
+                    <div class="project-info">
+                        <p>This project was first create in Python but after a while that was proven to be quite ressourse heavy due to some issues with opymasation so it was overhualed in Javascript and it is still runing it is a bot where you can book train tickets for a game and also mange your tickets </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Discord JS</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Command Kit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="photography" class="section">
+            <h2>Me as a photography</h2>
+            <div class="gallery-grid" id="photoShowcaseGallery">
+                <!-- Images from images/photo-showcase will be loaded here by JS -->
+            </div>
+            <div style="text-align:center; margin-top:2rem;">
+                <a href="photography.html" class="cta-button">Learn More</a>
+            </div>
+        </section>
+
+        <section id="blog" class="section">
+            <h2>Torque & Talk</h2>
+            <div class="blog-content">
+                <p class="blog-description">
+                    I share my thoughts about Automotive development, Brands,techniques, and  processes and thoerys and so much more. 
+                </p>
+                <a href="https://substack.com/@torquetalk" class="blog-button" target="_blank">Read My Blog on Substack</a>
+            </div>
+        </section>
+    </div>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="social-links">
+                <a href="oleg@polartracks.no">Email</a>
+                <a href="https://www.linkedin.com/in/olegs-sloka-787447370/">LinkedIn</a>
+                <a href="https://github.com/Media-Ollie">GitHub</a>
+                <a href="https://www.instagram.com/ollie_idkk/">Instagram</a>
+            </div>
+            <p>&copy; 2025 Olegs Sloka. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal for enlarged image -->
+    <div id="imgModal" style="display:none; position:fixed; z-index:2000; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center;">
+        <span id="closeModal" style="position:absolute; top:30px; right:50px; color:#fff; font-size:2rem; cursor:pointer;">&times;</span>
+        <img id="modalImg" src="" alt="Enlarged" style="max-width:80vw; max-height:80vh; border-radius:20px; box-shadow:0 0 40px #000;">
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(15px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+        });
+        const showcaseFolder = 'images/photo-showcase/';
+        const showcaseImages = [
+            `latvia-flag.jpg`,`Nantas-Landscape.JPG`,`Nates-Fountian.JPG`,`C-Face.JPG`,`Nates-Tram.JPG`,`C-Group.JPG`,`C-GROUP2.JPG`,`Will.JPG`,`TVGROUP.JPG`,`Train.jpg`,`Hair.JPG`,`Drums.JPG`
+        ];
+        const gallery = document.getElementById('photoShowcaseGallery');
+        showcaseImages.forEach(filename => {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            const img = document.createElement('img');
+            img.src = showcaseFolder + filename;
+            img.alt = '';
+            img.onerror = function() { this.style.display='none'; };
+            div.appendChild(img);
+            gallery.appendChild(div);
+        });
+
+        // Gallery image enlarge modal
+        gallery.addEventListener('click', function(e) {
+            if (e.target.tagName === 'IMG') {
+                const modal = document.getElementById('imgModal');
+                const modalImg = document.getElementById('modalImg');
+                modalImg.src = e.target.src;
+                modal.style.display = 'flex';
+            }
+        });
+        document.getElementById('closeModal').onclick = function() {
+            document.getElementById('imgModal').style.display = 'none';
+        };
+        document.getElementById('imgModal').onclick = function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
