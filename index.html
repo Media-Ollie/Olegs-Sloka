@@ -1,195 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olegs Sloka</title>
-    <link rel="icon" type="image/png" href="Images/Logo-Small.png">
-    <link rel="stylesheet" href="CSS/general.css">
-    <link rel="stylesheet" href="CSS/main-page.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olegs Sloka</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <a href="#" class="logo">OS</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#photography">Photography</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Hello, Olegs Sloka</h1>
-            <p>Web Developer • Photographer • Writer</p>
-            <a href="#projects" class="cta-button">View My Work</a>
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#home" class="nav-logo">OS<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#photography">Photography</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div id="home" class="hero">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <p class="hero-eyebrow">Based in London</p>
+        <h1>Olegs<br><em>Sloka.</em></h1>
+        <p class="hero-desc">Full-stack developer, photographer, and automotive writer. I build real things — websites, systems, bots — and capture the world in between.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">View Work</a>
+          <a href="#contact" class="btn-ghost">Get in Touch</a>
         </div>
-    </section>
-
-    <div class="container">
-        <section id="projects" class="section">
-            <h2>Development Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">Game Studio Site</div>
-                    <div class="project-info">
-                        <p>This is a website for a game studio who make Roblox games about the Norwigan Railway system with every littile detail
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Vercel</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">Portfolio Website</div>
-                    <div class="project-info">
-                        <p>A stunning portfolio website (Atleast I would say) for my self with smooth animations and interactive elements.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">HTML</span>                        
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">MongoDB</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">Discord Bot</div>
-                    <div class="project-info">
-                        <p>This project was first create in Python but after a while that was proven to be quite ressourse heavy due to some issues with opymasation so it was overhualed in Javascript and it is still runing it is a bot where you can book train tickets for a game and also mange your tickets </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Discord JS</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Command Kit</span>
-                        </div>
-                    </div>
-                </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="stat-row">
+            <div class="stat">
+              <div class="stat-number">3+</div>
+              <div class="stat-label">Live Projects</div>
             </div>
-        </section>
-
-        <section id="photography" class="section">
-            <h2>Me as a photography</h2>
-            <div class="gallery-grid" id="photoShowcaseGallery">
-                <!-- Images from images/photo-showcase will be loaded here by JS -->
+            <div class="stat">
+              <div class="stat-number">L3</div>
+              <div class="stat-label">IT Student</div>
             </div>
-            <div style="text-align:center; margin-top:2rem;">
-                <a href="photography.html" class="cta-button">Learn More</a>
+            <div class="stat">
+              <div class="stat-number">2</div>
+              <div class="stat-label">Languages</div>
             </div>
-        </section>
-
-        <section id="blog" class="section">
-            <h2>Torque & Talk</h2>
-            <div class="blog-content">
-                <p class="blog-description">
-                    I share my thoughts about Automotive development, Brands,techniques, and  processes and thoerys and so much more. 
-                </p>
-                <a href="https://substack.com/@torquetalk" class="blog-button" target="_blank">Read My Blog on Substack</a>
+            <div class="stat">
+              <div class="stat-number">4+</div>
+              <div class="stat-label">Yrs Experience</div>
             </div>
-        </section>
-    </div>
-
-    <footer id="contact">
-        <div class="container">
-            <div class="social-links">
-                <a href="oleg@polartracks.no">Email</a>
-                <a href="https://www.linkedin.com/in/olegs-sloka-787447370/">LinkedIn</a>
-                <a href="https://github.com/Media-Ollie">GitHub</a>
-                <a href="https://www.instagram.com/ollie_idkk/">Instagram</a>
-            </div>
-            <p>&copy; 2025 Olegs Sloka. All rights reserved.</p>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML &amp; CSS</span>
+            <span class="tag">React</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">APIs</span>
+            <span class="tag">Discord.js</span>
+            <span class="tag">Cyber Security</span>
+            <span class="tag">Photography</span>
+            <span class="tag">English · Russian</span>
+          </div>
         </div>
-    </footer>
-
-    <!-- Modal for enlarged image -->
-    <div id="imgModal" style="display:none; position:fixed; z-index:2000; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center;">
-        <span id="closeModal" style="position:absolute; top:30px; right:50px; color:#fff; font-size:2rem; cursor:pointer;">&times;</span>
-        <img id="modalImg" src="" alt="Enlarged" style="max-width:80vw; max-height:80vh; border-radius:20px; box-shadow:0 0 40px #000;">
+      </div>
     </div>
+  </div>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+  <div class="divider"></div>
 
-        // Add fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label reveal">Selected Work</p>
+    <h2 class="section-title reveal">Projects.</h2>
+    <p class="section-sub reveal">Real products, shipped and running.</p>
+    <div class="projects-list reveal">
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
+      <div class="project-item">
+        <div>
+          <p class="project-num">01</p>
+          <p class="project-name">Game Studio Website</p>
+          <p class="project-desc">Full-stack site for a Roblox game studio focused on the Norwegian Railway system — complete with frontend interfaces, backend APIs, and a live database. Designed and deployed solo.</p>
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag">MongoDB</span>
+            <span class="project-tag">Vercel</span>
+            <span class="project-tag">Full-Stack</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
 
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
+      <div class="project-item">
+        <div>
+          <p class="project-num">02</p>
+          <p class="project-name">Portfolio Website</p>
+          <p class="project-desc">This site — built with smooth animations, a clean layout, and interactive elements. Designed entirely by hand, no templates.</p>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">React</span>
+            <span class="project-tag">MongoDB</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
 
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(15px)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.1)';
-                header.style.backdropFilter = 'blur(10px)';
-            }
-        });
-        const showcaseFolder = 'Images/photo-showcase/';
-        const showcaseImages = [
-            `latvia-flag.jpg`,`Nantas-Landscape.JPG`,`Nates-Fountian.JPG`,`C-Face.JPG`,`Nates-Tram.JPG`,`C-Group.JPG`,`C-GROUP2.JPG`,`Will.JPG`,`TVGROUP.JPG`,`Train.jpg`,`Hair.JPG`,`Drums.JPG`
-        ];
-        const gallery = document.getElementById('photoShowcaseGallery');
-        showcaseImages.forEach(filename => {
-            const div = document.createElement('div');
-            div.className = 'gallery-item';
-            const img = document.createElement('img');
-            img.src = showcaseFolder + filename;
-            img.alt = '';
-            img.onerror = function() { this.style.display='none'; };
-            div.appendChild(img);
-            gallery.appendChild(div);
-        });
+      <div class="project-item">
+        <div>
+          <p class="project-num">03</p>
+          <p class="project-name">Train Ticket Discord Bot</p>
+          <p class="project-desc">Started in Python, overhauled to JavaScript after optimisation issues. A live bot that lets players book and manage train tickets inside a game — still running today.</p>
+          <div class="project-tags">
+            <span class="project-tag">Discord.js</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Command Kit</span>
+            <span class="project-tag">JS</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
 
-        // Gallery image enlarge modal
-        gallery.addEventListener('click', function(e) {
-            if (e.target.tagName === 'IMG') {
-                const modal = document.getElementById('imgModal');
-                const modalImg = document.getElementById('modalImg');
-                modalImg.src = e.target.src;
-                modal.style.display = 'flex';
-            }
-        });
-        document.getElementById('closeModal').onclick = function() {
-            document.getElementById('imgModal').style.display = 'none';
-        };
-        document.getElementById('imgModal').onclick = function(e) {
-            if (e.target === this) {
-                this.style.display = 'none';
-            }
-        };
-    </script>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PHOTOGRAPHY -->
+  <section id="photography">
+    <div class="photo-intro">
+      <div class="photo-text">
+        <p class="section-label reveal">Behind the lens</p>
+        <h2 class="section-title reveal">Photography.</h2>
+        <p class="reveal">I shoot everything — landscapes, portraits, street, transport. Photography is how I slow down and pay attention.</p>
+        <a href="photography.html" class="btn-ghost reveal" style="display:inline-block;">See the full gallery →</a>
+      </div>
+      <div class="photo-gallery-hint reveal" id="photoGrid">
+        <!-- filled by JS below -->
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <p class="section-label reveal">Writing</p>
+    <h2 class="section-title reveal">Torque &amp; Talk.</h2>
+    <div class="blog-feature reveal">
+      <div>
+        <p class="blog-name">Torque &amp; Talk</p>
+        <p class="blog-desc">Automotive development, brands, techniques, theories — my take on cars and the engineering behind them. Published on Substack.</p>
+        <div class="blog-meta">
+          <span class="blog-chip">Automotive</span>
+          <span class="blog-chip">Engineering</span>
+          <span class="blog-chip">Brand Analysis</span>
+        </div>
+        <a href="https://substack.com/@torquetalk" target="_blank" class="btn-primary" style="margin-top:1.75rem; display:inline-block;">Read on Substack ↗</a>
+      </div>
+      <div class="blog-visual">
+        <div class="blog-logo-big">T&amp;T</div>
+        <p style="font-size:0.75rem; color:var(--muted); letter-spacing:0.05em;">ON SUBSTACK</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <p class="section-label reveal">Background</p>
+    <h2 class="section-title reveal">Experience.</h2>
+    <p class="section-sub reveal">From freelance development to restaurant service — I've always been working.</p>
+    <div class="exp-grid">
+
+      <div class="exp-card reveal">
+        <p class="exp-period">Sep 2024 – Dec 2025</p>
+        <p class="exp-role">Freelance Web Developer</p>
+        <p class="exp-company">PolarTracks — Remote</p>
+        <ul class="exp-points">
+          <li>Designed, built, and deployed a full-stack company website</li>
+          <li>Built frontend interfaces and backend APIs with databases</li>
+          <li>Gathered requirements, planned features, delivered a live product</li>
+        </ul>
+      </div>
+
+      <div class="exp-card reveal">
+        <p class="exp-period">Dec 2025 – Present</p>
+        <p class="exp-role">Student Ambassador</p>
+        <p class="exp-company">Waltham Forest College</p>
+        <ul class="exp-points">
+          <li>Represent the college at open days and events</li>
+          <li>Support prospective students and visitors with guidance</li>
+          <li>Assist with event organisation</li>
+        </ul>
+      </div>
+
+      <div class="exp-card reveal">
+        <p class="exp-period">Feb 2021 – May 2024</p>
+        <p class="exp-role">IT Service Provider</p>
+        <p class="exp-company">MONVIK LTD — England</p>
+        <ul class="exp-points">
+          <li>Set up and managed IT systems for a small business</li>
+          <li>Created invoicing and digital organisation systems</li>
+          <li>Moved manual processes to digital — improved efficiency</li>
+        </ul>
+      </div>
+
+      <div class="exp-card reveal">
+        <p class="exp-period">Sep 2024 – Sep 2025</p>
+        <p class="exp-role">Waiter</p>
+        <p class="exp-company">London Darbar</p>
+        <ul class="exp-points">
+          <li>Delivered professional customer service in a busy restaurant</li>
+          <li>Managed requests and resolved issues calmly under pressure</li>
+          <li>Maintained high standards during private events</li>
+        </ul>
+      </div>
+
+      <div class="exp-card reveal">
+        <p class="exp-period">May 2025 – Dec 2025</p>
+        <p class="exp-role">Landscaping &amp; Construction Assistant</p>
+        <p class="exp-company">Gardens 24/7 — North London</p>
+        <ul class="exp-points">
+          <li>Worked on residential landscaping and construction projects across North London</li>
+          <li>Maintained safe working practices and supported daily site operations</li>
+          <li>Worked within a team to meet deadlines and quality standards</li>
+        </ul>
+      </div>
+      
+
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTACT -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <h2 class="footer-heading">Let's<br><em>connect.</em></h2>
+          <p class="footer-sub">Whether it's a project, an apprenticeship opportunity, or just a conversation — I'm always open.</p>
+          <a href="mailto:olegssloka@consultant.com" class="btn-primary">Send an email ↗</a>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:olegssloka@consultant.com" class="contact-link">
+            <span class="contact-link-label">Email</span>
+            <span>olegssloka@consultant.com</span>
+          </a>
+          <a href="https://www.linkedin.com/in/olegs-sloka-787447370/" target="_blank" class="contact-link">
+            <span class="contact-link-label">LinkedIn</span>
+            <span>Olegs Sloka ↗</span>
+          </a>
+          <a href="https://github.com/Media-Ollie" target="_blank" class="contact-link">
+            <span class="contact-link-label">GitHub</span>
+            <span>Media-Ollie ↗</span>
+          </a>
+          <a href="https://www.instagram.com/ollie_idkk/" target="_blank" class="contact-link">
+            <span class="contact-link-label">Instagram</span>
+            <span>@ollie_idkk ↗</span>
+          </a>
+          <a href="https://olegssloka.dedyn.io/" target="_blank" class="contact-link">
+            <span class="contact-link-label">Website</span>
+            <span>olegssloka.dedyn.io ↗</span>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Olegs Sloka. All rights reserved.</p>
+        <p class="footer-logo">OS<span>.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), 80);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => io.observe(el));
+
+    // Photo grid — uses the same images as the original
+    const photoGrid = document.getElementById('photoGrid');
+    const folder = 'Images/photo-showcase/';
+    const imgs = ['latvia-flag.jpg','Nantas-Landscape.JPG','Nates-Fountian.JPG','C-Face.JPG','Nates-Tram.JPG','C-Group.JPG','C-GROUP2.JPG','Will.JPG','TVGROUP.JPG'];
+    imgs.slice(0, 9).forEach(name => {
+      const wrap = document.createElement('div');
+      wrap.className = 'gallery-placeholder';
+      const img = document.createElement('img');
+      img.src = folder + name;
+      img.alt = '';
+      img.onerror = () => { wrap.className = 'gallery-placeholder-empty'; wrap.textContent = ''; };
+      wrap.appendChild(img);
+      photoGrid.appendChild(wrap);
+    });
+  </script>
 </body>
 </html>
