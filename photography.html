@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography — Olegs Sloka</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #111110;
+      --bg2: #1a1a18;
+      --bg3: #222220;
+      --text: #f0ede6;
+      --muted: #8a8880;
+      --amber: #e8a228;
+      --amber-dim: #3d2e0e;
+      --border: rgba(240,237,230,0.08);
+      --border-hover: rgba(240,237,230,0.18);
+      --radius: 4px;
+      --radius-lg: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(17,17,16,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .nav-logo span { color: var(--amber); }
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+    .nav-back::before { content: '←'; }
+
+    /* ── HEADER ── */
+    .page-header {
+      padding: 10rem 2.5rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .header-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .header-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--amber);
+    }
+    .page-header h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    .page-header h1 em {
+      font-style: normal;
+      color: var(--amber);
+    }
+    .page-header p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      max-width: 1100px;
+      margin: 0 auto 2.5rem;
+      padding: 0 2.5rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 0.4rem 1rem;
+      color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover { border-color: var(--border-hover); color: var(--text); }
+    .filter-btn.active {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: #111;
+      font-weight: 500;
+    }
+
+    /* ── MASONRY GALLERY ── */
+    .gallery-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2.5rem 6rem;
+    }
+    .masonry {
+      columns: 3;
+      column-gap: 0.75rem;
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 0.75rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--bg3);
+      cursor: pointer;
+    }
+    .masonry-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+      opacity: 0.85;
+    }
+    .masonry-item:hover img {
+      transform: scale(1.04);
+      opacity: 1;
+    }
+    .masonry-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(17,17,16,0.7) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+    .masonry-item:hover .masonry-overlay { opacity: 1; }
+    .masonry-caption {
+      font-size: 0.78rem;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+
+    /* placeholder tiles for broken/missing images */
+    .masonry-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--bg3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(10,10,9,0.95);
+      backdrop-filter: blur(12px);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-img {
+      max-width: min(900px, 90vw);
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: var(--radius);
+      display: block;
+    }
+    .lightbox-close {
+      position: fixed;
+      top: 1.5rem;
+      right: 2rem;
+      background: none;
+      border: 1px solid var(--border-hover);
+      color: var(--text);
+      font-size: 1.25rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s;
+    }
+    .lightbox-close:hover { border-color: var(--amber); color: var(--amber); }
+    .lightbox-prev, .lightbox-next {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: 1px solid var(--border-hover);
+      color: var(--text);
+      font-size: 1.1rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .lightbox-prev { left: 1.5rem; }
+    .lightbox-next { right: 1.5rem; }
+    .lightbox-prev:hover, .lightbox-next:hover { border-color: var(--amber); color: var(--amber); }
+    .lightbox-counter {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .header-eyebrow { animation: fadeUp 0.8s 0.1s both; }
+    .page-header h1  { animation: fadeUp 0.8s 0.25s both; }
+    .page-header p   { animation: fadeUp 0.8s 0.4s both; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+    .footer-logo span { color: var(--amber); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .page-header { padding: 8rem 1.25rem 3rem; }
+      .filter-bar { padding: 0 1.25rem; }
+      .gallery-section { padding: 0 1.25rem 4rem; }
+      .masonry { columns: 2; }
+      .lightbox-prev { left: 0.5rem; }
+      .lightbox-next { right: 0.5rem; }
+    }
+    @media (max-width: 480px) {
+      .masonry { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">OS<span>.</span></a>
+    <a href="index.html" class="nav-back">Back to portfolio</a>
+  </nav>
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <p class="header-eyebrow">Behind the lens</p>
+    <h1>Photo<em>graphy.</em></h1>
+    <p>Landscapes, portraits, street, transport — a collection of moments I found worth keeping.</p>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar reveal">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="landscape">Landscape</button>
+    <button class="filter-btn" data-filter="people">People</button>
+    <button class="filter-btn" data-filter="transport">Transport</button>
+    <button class="filter-btn" data-filter="other">Other</button>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="gallery-section">
+    <div class="masonry reveal" id="gallery"></div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lbClose">✕</button>
+    <button class="lightbox-prev" id="lbPrev">←</button>
+    <img class="lightbox-img" id="lbImg" src="" alt="">
+    <button class="lightbox-next" id="lbNext">→</button>
+    <p class="lightbox-counter" id="lbCounter"></p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-copy">© 2025 Olegs Sloka</p>
+      <p class="footer-logo">OS<span>.</span></p>
+    </div>
+  </footer>
+
+  <script>
+    const FOLDER = 'Images/photo-showcase/';
+
+    // All images with category tags — update captions/categories as you like
+    const photos = [
+      { file: 'latvia-flag.jpg',        caption: 'Latvia',         cat: 'other' },
+      { file: 'Nantas-Landscape.JPG',   caption: 'Landscape',      cat: 'landscape' },
+      { file: 'Nates-Fountian.JPG',     caption: 'Fountain',       cat: 'landscape' },
+      { file: 'C-Face.JPG',             caption: 'Portrait',       cat: 'people' },
+      { file: 'Nates-Tram.JPG',         caption: 'Tram',           cat: 'transport' },
+      { file: 'C-Group.JPG',            caption: 'Group',          cat: 'people' },
+      { file: 'C-GROUP2.JPG',           caption: 'Group',          cat: 'people' },
+      { file: 'Will.JPG',               caption: 'Portrait',       cat: 'people' },
+      { file: 'TVGROUP.JPG',            caption: 'Group',          cat: 'people' },
+      { file: 'Train.jpg',              caption: 'Train',          cat: 'transport' },
+      { file: 'Hair.JPG',               caption: 'Portrait',       cat: 'people' },
+      { file: 'Drums.JPG',              caption: 'Drums',          cat: 'other' },
+    ];
+
+    const gallery = document.getElementById('gallery');
+    let visiblePhotos = [...photos];
+    let currentIndex = 0;
+
+    function buildGallery(list) {
+      gallery.innerHTML = '';
+      list.forEach((photo, i) => {
+        const item = document.createElement('div');
+        item.className = 'masonry-item';
+        item.dataset.index = i;
+
+        const img = document.createElement('img');
+        img.src = FOLDER + photo.file;
+        img.alt = photo.caption;
+        img.loading = 'lazy';
+        img.onerror = () => {
+          img.style.display = 'none';
+          const ph = document.createElement('div');
+          ph.className = 'masonry-placeholder';
+          ph.textContent = photo.caption;
+          item.appendChild(ph);
+        };
+
+        const overlay = document.createElement('div');
+        overlay.className = 'masonry-overlay';
+        const cap = document.createElement('span');
+        cap.className = 'masonry-caption';
+        cap.textContent = photo.caption;
+        overlay.appendChild(cap);
+
+        item.appendChild(img);
+        item.appendChild(overlay);
+        item.addEventListener('click', () => openLightbox(i));
+        gallery.appendChild(item);
+      });
+    }
+
+    // Filters
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        visiblePhotos = f === 'all' ? [...photos] : photos.filter(p => p.cat === f);
+        buildGallery(visiblePhotos);
+      });
+    });
+
+    buildGallery(photos);
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lbImg    = document.getElementById('lbImg');
+    const lbCounter = document.getElementById('lbCounter');
+
+    function openLightbox(i) {
+      currentIndex = i;
+      updateLightbox();
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function updateLightbox() {
+      const p = visiblePhotos[currentIndex];
+      lbImg.src = FOLDER + p.file;
+      lbImg.alt = p.caption;
+      lbCounter.textContent = (currentIndex + 1) + ' / ' + visiblePhotos.length;
+    }
+
+    document.getElementById('lbClose').addEventListener('click', closeLightbox);
+    document.getElementById('lbPrev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + visiblePhotos.length) % visiblePhotos.length;
+      updateLightbox();
+    });
+    document.getElementById('lbNext').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % visiblePhotos.length;
+      updateLightbox();
+    });
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + visiblePhotos.length) % visiblePhotos.length; updateLightbox(); }
+      if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % visiblePhotos.length; updateLightbox(); }
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
